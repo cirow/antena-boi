@@ -1,17 +1,13 @@
 fileFormatVersion: 2
 guid: d2d2fd0811bfdff4c92d3c3931843073
-<<<<<<< Updated upstream
-timeCreated: 1520800326
-=======
-timeCreated: 1520799916
->>>>>>> Stashed changes
+timeCreated: 1520806820
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: animacao_balaozinho_4
     21300002: animacao_balaozinho_1
     21300004: animacao_balaozinho_2
-    21300006: animacao_balaozinho_7
+    21300006: animacao_balaozinho_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -44,7 +40,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: -1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -93,13 +89,8 @@ TextureImporter:
         serializedVersion: 2
         x: 130
         y: 2
-<<<<<<< Updated upstream
         width: 126
-        height: 63
-=======
-        width: 125
         height: 62
->>>>>>> Stashed changes
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,12 +117,8 @@ TextureImporter:
         serializedVersion: 2
         x: 18
         y: 2
-        width: 15
-<<<<<<< Updated upstream
+        width: 16
         height: 13
-=======
-        height: 14
->>>>>>> Stashed changes
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,17 +126,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: animacao_balaozinho_7
+      name: animacao_balaozinho_3
       rect:
         serializedVersion: 2
         x: 36
         y: 2
-        width: 92
-<<<<<<< Updated upstream
+        width: 93
         height: 49
-=======
-        height: 47
->>>>>>> Stashed changes
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

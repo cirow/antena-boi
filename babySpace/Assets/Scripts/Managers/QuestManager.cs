@@ -6,6 +6,9 @@ public class QuestManager : MonoBehaviour {
 
     private static QuestManager instance = null;
 
+    [SerializeField]
+    private BlinkEffect blink;
+
 
 
     public static QuestManager Instance
@@ -29,7 +32,8 @@ public class QuestManager : MonoBehaviour {
             Debug.Log("Trying to instantiate 2 Puzzle Manager");
         }
 		AudioManager.instance.WindAudio(true);
-
+        //blink.StartBlinking(5);
+        //StartCoroutine(WaitBlinkingAction(blink));
     }
 
     // Update is called once per frame
@@ -59,5 +63,14 @@ public class QuestManager : MonoBehaviour {
         Controller2D.Player.teleportEnabled = true;
         
         StageRadio();
+    }
+
+    private IEnumerator WaitBlinkingAction(BlinkEffect blink)
+    {
+        while (blink.Is_Blinking)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        Debug.Log("done blinking");
     }
 }

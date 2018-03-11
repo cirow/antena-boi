@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: d2d2fd0811bfdff4c92d3c3931843073
-timeCreated: 1520806820
+guid: d48786276d39e6448989c184388542b1
+timeCreated: 1520807685
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: animacao_balaozinho_4
-    21300002: animacao_balaozinho_1
-    21300004: animacao_balaozinho_2
-    21300006: animacao_balaozinho_3
+    21300000: fora_do_ar_0
+    21300002: fora_do_ar_1
+    21300004: fora_do_ar_2
+    21300006: fora_do_ar_3
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -84,56 +84,56 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: animacao_balaozinho_4
+      name: fora_do_ar_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 2
-        width: 126
-        height: 62
-      alignment: 6
+        x: 0
+        y: 0
+        width: 51
+        height: 8
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: animacao_balaozinho_1
+      name: fora_do_ar_1
       rect:
         serializedVersion: 2
-        x: 6
-        y: 2
-        width: 7
-        height: 6
-      alignment: 6
+        x: 52
+        y: 0
+        width: 51
+        height: 8
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: animacao_balaozinho_2
+      name: fora_do_ar_2
       rect:
         serializedVersion: 2
-        x: 18
-        y: 2
-        width: 16
-        height: 13
-      alignment: 6
+        x: 104
+        y: 0
+        width: 51
+        height: 8
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: animacao_balaozinho_3
+      name: fora_do_ar_3
       rect:
         serializedVersion: 2
-        x: 36
-        y: 2
-        width: 93
-        height: 49
-      alignment: 6
+        x: 156
+        y: 0
+        width: 51
+        height: 8
+      alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []

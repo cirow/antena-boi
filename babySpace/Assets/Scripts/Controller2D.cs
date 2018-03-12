@@ -15,16 +15,17 @@ public class Controller2D : MonoBehaviour {
     private SpriteRenderer helpPopUp;
 
     [SerializeField]
-    private SpriteRenderer equipBaloon;
+    private GameObject equipBaloon;
     [SerializeField]
-    private SpriteRenderer pipBaloon;
+    private GameObject pipBaloon;
 	[SerializeField]
-	private SpriteRenderer teleportBaloon;
+	private GameObject teleportBaloon;
 
 	private Collider2D playerCollider;
     private Rigidbody2D playerRigidBody;
     private Animator anim;
     public TipoItem cribPart = TipoItem.vazio;
+
 
     public bool gotHelmet, gotAntena, gotPip = false;
 	public bool gotHint1, gotHint2, gotHint3 = false;
@@ -32,9 +33,14 @@ public class Controller2D : MonoBehaviour {
 	public int numberEquip = 0;
 	public bool playBeep = true;
 
+    [SerializeField]
+    private float tempo_para_idle;
+    private float tempo_parado = 0f;
     private float mfaceX = 1;
     private float mfaceY = 1;
 	private ConsoleManager consoleManager;
+
+
     // Use this for initialization
     void Start () {
 
@@ -53,7 +59,7 @@ public class Controller2D : MonoBehaviour {
         playerRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 		consoleManager = GameObject.FindGameObjectWithTag("ConsoleManager").GetComponent<ConsoleManager>();
-        equipBaloon.enabled = false;
+        equipBaloon.SetActive(false);
 		
 	}
 
@@ -100,9 +106,10 @@ public class Controller2D : MonoBehaviour {
         else
         {
             anim.SetBool("walking", false);
+            tempo_parado += Time.deltaTime;
 
         }
-		if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
 		{
 			SearchHint();
 		}
@@ -114,6 +121,10 @@ public class Controller2D : MonoBehaviour {
 		{
             StartTeleport();
 		}
+        if(tempo_parado >= tempo_para_idle)
+        {
+            QuestManager.Instance.IdleState(equipBaloon);
+        }
 
 
 	}
@@ -202,7 +213,7 @@ public class Controller2D : MonoBehaviour {
            // Debug.Log("Peguei uma peça carai");
             cribPart = item.Item;
             item.BeTaken();
-			teleportBaloon.enabled = true;
+			teleportBaloon.SetActive(true);
         }
 
     }
@@ -396,8 +407,8 @@ public class Controller2D : MonoBehaviour {
     {
       //  transform.localScale = new Vector2(1, 1);
         transform.position = warpPoint.position;
-		teleportBaloon.enabled = false;
-       // transform.localScale = new Vector2(1, 10f);
+		teleportBaloon.SetActive(false);
+        // transform.localScale = new Vector2(1, 10f);
         anim.Play("anim_warp_reverse");
 
 
@@ -481,7 +492,7 @@ public class Controller2D : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Limit")
         {
-            equipBaloon.enabled = true;
+            equipBaloon.SetActive(true);
         }
     }
 
@@ -491,7 +502,7 @@ public class Controller2D : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Limit")
         {
-            equipBaloon.enabled = false;
+            equipBaloon.SetActive(false);
         }
     }
 
@@ -499,7 +510,7 @@ public class Controller2D : MonoBehaviour {
     {
         if (collision.gameObject.tag == "baloonTrig")
         {
-            pipBaloon.enabled = true;
+            pipBaloon.SetActive(true);
         }
     }
 
@@ -507,7 +518,7 @@ public class Controller2D : MonoBehaviour {
     {
         if (collision.gameObject.tag == "baloonTrig")
         {
-            pipBaloon.enabled = false;
+            pipBaloon.SetActive(false);
         }
     }
 }

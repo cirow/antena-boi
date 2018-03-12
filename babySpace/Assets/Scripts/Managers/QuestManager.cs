@@ -65,6 +65,12 @@ public class QuestManager : MonoBehaviour {
         StageRadio();
     }
 
+    public void IdleState(GameObject baloon)
+    {
+
+    }
+
+
     private IEnumerator WaitBlinkingAction(BlinkEffect blink)
     {
         while (blink.Is_Blinking)

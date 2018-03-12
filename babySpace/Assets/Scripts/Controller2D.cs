@@ -72,6 +72,30 @@ public class Controller2D : MonoBehaviour {
         }
     }
 
+    public GameObject EquipBaloon
+    {
+        get
+        {
+            return equipBaloon;
+        }
+    }
+
+    public GameObject PipBaloon
+    {
+        get
+        {
+            return pipBaloon;
+        }
+    }
+
+    public GameObject TeleportBaloon
+    {
+        get
+        {
+            return teleportBaloon;
+        }
+    }
+
     public TipoItem GetCribPart
     {
         get {
@@ -100,6 +124,8 @@ public class Controller2D : MonoBehaviour {
             anim.SetFloat("MoveX", PlayerInput.Instance.MoveX);
             anim.SetFloat("MoveY", PlayerInput.Instance.MoveY);
             UpdateFace();
+            QuestManager.Instance.StopIdleState();
+            tempo_parado = 0f;
 
 
         }
@@ -123,7 +149,7 @@ public class Controller2D : MonoBehaviour {
 		}
         if(tempo_parado >= tempo_para_idle)
         {
-            QuestManager.Instance.IdleState(equipBaloon);
+            QuestManager.Instance.IdleState();
         }
 
 

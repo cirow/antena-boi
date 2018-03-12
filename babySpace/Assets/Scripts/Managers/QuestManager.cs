@@ -9,6 +9,8 @@ public class QuestManager : MonoBehaviour {
     [SerializeField]
     private BlinkEffect blink;
 
+    private GameObject currentStateBaloon;
+
 
 
     public static QuestManager Instance
@@ -34,6 +36,8 @@ public class QuestManager : MonoBehaviour {
 		AudioManager.instance.WindAudio(true);
         //blink.StartBlinking(5);
         //StartCoroutine(WaitBlinkingAction(blink));
+
+        currentStateBaloon = Controller2D.Player.EquipBaloon;
     }
 
     // Update is called once per frame
@@ -61,14 +65,28 @@ public class QuestManager : MonoBehaviour {
     public void TodosOsEquips()
     {
         Controller2D.Player.teleportEnabled = true;
+        StopIdleState();
+        currentStateBaloon = null;
         
         StageRadio();
     }
 
-    public void IdleState(GameObject baloon)
+    public void IdleState()
     {
-
+        if(currentStateBaloon != null)
+        {
+            currentStateBaloon.SetActive(true);
+        }
     }
+
+    public void StopIdleState()
+    {
+        if (currentStateBaloon != null)
+        {
+            currentStateBaloon.SetActive(false);
+        }
+    }
+
 
 
     private IEnumerator WaitBlinkingAction(BlinkEffect blink)

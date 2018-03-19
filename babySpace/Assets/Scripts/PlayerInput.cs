@@ -116,6 +116,7 @@ public class PlayerInput : MonoBehaviour {
         actionButton = Input.GetButtonDown("Jump");
         if (actionButton && !game_is_started)
         {
+            Debug.Log("Game is started");
             game_is_started = true;
             Controller2D.Player.Anim.SetTrigger("getUp");
             Controller2D.Player.Anim.SetLayerWeight(4, 1f);

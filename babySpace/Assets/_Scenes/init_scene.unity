@@ -5157,11 +5157,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4758193607322222, guid: 0383486075710cf4cba6b640088bad3c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 23.23
+      value: 19.32
       objectReference: {fileID: 0}
     - target: {fileID: 4758193607322222, guid: 0383486075710cf4cba6b640088bad3c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 56.33
+      value: 52.02
       objectReference: {fileID: 0}
     - target: {fileID: 4758193607322222, guid: 0383486075710cf4cba6b640088bad3c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7156,6 +7156,21 @@ Prefab:
       propertyPath: warpPoint
       value: 
       objectReference: {fileID: 767106922}
+    - target: {fileID: 1770837171461156, guid: 6631ee2602e12ce4aae38eccf823d0ae, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212313336654983452, guid: 6631ee2602e12ce4aae38eccf823d0ae,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 40de58cf98b01c342b9c3c3b975b15fb,
+        type: 3}
+    - target: {fileID: 114128888336738218, guid: 6631ee2602e12ce4aae38eccf823d0ae,
+        type: 2}
+      propertyPath: game_is_started
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6631ee2602e12ce4aae38eccf823d0ae, type: 2}
   m_IsPrefabParent: 0

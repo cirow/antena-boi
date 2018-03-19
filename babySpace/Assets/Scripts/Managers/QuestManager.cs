@@ -21,19 +21,28 @@ public class QuestManager : MonoBehaviour {
         }
     }
 
+	void Awake()
+	{
+		if (QuestManager.Instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+			Debug.Log("Trying to instantiate 2 Puzzle Manager");
+		}
+	}
+
     // Use this for initialization
     void Start()
     {
-        if (PuzzleManager.Instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-            Debug.Log("Trying to instantiate 2 Puzzle Manager");
-        }
-		AudioManager.instance.WindAudio(true);
+       
+		if(AudioManager.instance != null)
+		{
+			AudioManager.instance.WindAudio(true);
+		}
+		
         //blink.StartBlinking(5);
         //StartCoroutine(WaitBlinkingAction(blink));
 

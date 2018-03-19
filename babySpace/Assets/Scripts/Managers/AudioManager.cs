@@ -28,22 +28,30 @@ public class AudioManager : MonoBehaviour {
 			instance = this;
 			//Leave here just in case we need after
 			GameObject.DontDestroyOnLoad(gameObject);
+			levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+			audioSources = GetComponents<AudioSource>();
+			if (audioSources.Length >= 2)
+			{
+				Debug.Log("audio sources ok");
+			}
+			else
+			{
+				Debug.Log("error getting audio sources");
+			}
 		}
 	}
 	
 	void Start ()
 	{
-		levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-		audioSources = GetComponents<AudioSource>();	
-		if(audioSources.Length >= 2)
+		if (SceneManager.GetActiveScene().name == "init_scene")
 		{
-			Debug.Log("audio sources ok");
+			WindAudio(true);
 		}
 		else
 		{
-			Debug.Log("error getting audio sources");
+			VictoryAudio(true);
 		}
-		VictoryAudio(true);
+
 	}
 
 

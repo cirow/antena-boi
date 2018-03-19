@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 09004cac28192ad4c8f0718c325decef
-timeCreated: 1517164386
+timeCreated: 1521473002
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,12 @@ TextureImporter:
     21300006: idleNude_spritesheet_3
     21300008: idleNude_spritesheet_4
     21300010: idleNude_spritesheet_5
+    21300012: idleNude_spritesheet_6
+    21300014: idleNude_spritesheet_7
+    21300016: idleNude_spritesheet_8
+    21300018: idleNude_spritesheet_9
+    21300020: idleNude_spritesheet_10
+    21300022: idleNude_spritesheet_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -109,8 +115,8 @@ TextureImporter:
       name: idleNude_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 3
+        x: 8
+        y: 127
         width: 73
         height: 111
       alignment: 7
@@ -123,8 +129,8 @@ TextureImporter:
       name: idleNude_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 75
-        y: 6
+        x: 82
+        y: 130
         width: 73
         height: 108
       alignment: 7
@@ -137,8 +143,8 @@ TextureImporter:
       name: idleNude_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 149
-        y: 7
+        x: 156
+        y: 131
         width: 73
         height: 107
       alignment: 7
@@ -151,8 +157,8 @@ TextureImporter:
       name: idleNude_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 223
-        y: 7
+        x: 230
+        y: 131
         width: 73
         height: 107
       alignment: 7
@@ -165,8 +171,8 @@ TextureImporter:
       name: idleNude_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 297
-        y: 6
+        x: 304
+        y: 130
         width: 73
         height: 108
       alignment: 7
@@ -179,10 +185,94 @@ TextureImporter:
       name: idleNude_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 371
-        y: 3
+        x: 378
+        y: 127
         width: 73
         height: 111
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 6
+        width: 72
+        height: 114
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 6
+        width: 72
+        height: 113
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 6
+        width: 72
+        height: 110
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 6
+        width: 72
+        height: 110
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 6
+        width: 72
+        height: 113
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: idleNude_spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 6
+        width: 72
+        height: 117
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

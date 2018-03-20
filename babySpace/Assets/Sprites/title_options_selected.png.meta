@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: e13f270008535b444a581eca686b50c4
-timeCreated: 1521503532
+guid: 8c1ae2df9d9c62449bd02cd544d983e5
+timeCreated: 1521507798
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
-    21300000: title_options_0
-    21300002: title_options_1
-    21300004: title_options_2
+    21300000: title_options_selected_0
+    21300002: title_options_selected_1
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -39,7 +38,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -83,43 +82,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: title_options_0
+      name: title_options_selected_0
       rect:
         serializedVersion: 2
-        x: 170
-        y: 124
-        width: 278
-        height: 73
+        x: 9
+        y: 112
+        width: 519
+        height: 109
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: title_options_1
+      name: title_options_selected_1
       rect:
         serializedVersion: 2
-        x: 121
-        y: 9
-        width: 398
-        height: 74
+        x: 9
+        y: 0
+        width: 519
+        height: 109
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: title_options_2
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 114
-        width: 85
-        height: 103
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

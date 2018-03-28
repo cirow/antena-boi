@@ -349,7 +349,7 @@ public class Controller2D : MonoBehaviour {
 
     public void SearchAction()
     {
-        Collider2D objetoPerto = Physics2D.OverlapCircle(transform.position, 1.6f, LayerMask.GetMask("ActionLayer"));
+        Collider2D objetoPerto = Physics2D.OverlapCircle(transform.position, 0.6f, LayerMask.GetMask("ActionLayer"));
         if (objetoPerto != null && PlayerInput.Instance.game_is_started)
         {
 			//if(objetoPerto.tag == "HintSpot")
@@ -436,7 +436,7 @@ public class Controller2D : MonoBehaviour {
 
     private void Teleport()
     {
-      //  transform.localScale = new Vector2(1, 1);
+        //  transform.localScale = new Vector2(1, 1);
         transform.position = warpPoint.position;
 		teleportBaloon.SetActive(false);
         // transform.localScale = new Vector2(1, 10f);
@@ -451,6 +451,7 @@ public class Controller2D : MonoBehaviour {
         playerCollider.enabled = true;
         PlayerInput.Instance.UnfreezePlayer();
         teleportEnabled = true;
+        QuestManager.Instance.EnableIdle();
 
 
     }
@@ -458,6 +459,7 @@ public class Controller2D : MonoBehaviour {
     private void StartTeleport()
     {
         anim.Play("anim_warp");
+        QuestManager.Instance.DisableIdle();
         PlayerInput.Instance.FreezePlayer();
         playerCollider.enabled = false;
         teleportEnabled = false;
@@ -525,6 +527,7 @@ public class Controller2D : MonoBehaviour {
         {
             equipBaloon.SetActive(true);
         }
+
     }
 
 
@@ -543,6 +546,14 @@ public class Controller2D : MonoBehaviour {
         {
             pipBaloon.SetActive(true);
         }
+        else if (collision.gameObject.tag == "Warp")
+        {
+            QuestManager.Instance.HandleWarpCollision();
+        }
+        else if(collision.gameObject.tag == "HintSpot")
+        {
+            QuestManager.Instance.EnableIdle();
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -550,6 +561,10 @@ public class Controller2D : MonoBehaviour {
         if (collision.gameObject.tag == "baloonTrig")
         {
             pipBaloon.SetActive(false);
+        }
+        else if (collision.gameObject.tag == "HintSpot")
+        {
+            QuestManager.Instance.DisableIdle();
         }
     }
 }

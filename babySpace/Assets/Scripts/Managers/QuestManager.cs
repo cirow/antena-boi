@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class QuestManager : MonoBehaviour {
     private BlinkEffect blink;
     [SerializeField]
     private Collider2D warpCollider;
+    private bool warp_check = false;
+    private bool disable_idle = false;
 
     private GameObject currentStateBaloon;
 
@@ -84,12 +87,11 @@ public class QuestManager : MonoBehaviour {
         currentStateBaloon.SetActive(false);
         currentStateBaloon = Controller2D.Player.TeleportBaloon;
         warpCollider.enabled = true;
-        StageRadio();
     }
 
     public void IdleState()
     {
-        if(currentStateBaloon != null)
+        if(currentStateBaloon != null && !disable_idle)
         {
             currentStateBaloon.SetActive(true);
         }
@@ -119,5 +121,36 @@ public class QuestManager : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         Debug.Log("done blinking");
+        FinishBlinking();
+    }
+
+    private void FinishBlinking()
+    {
+        PlayerInput.Instance.UnfreezePlayer();
+        currentStateBaloon.SetActive(false);
+        currentStateBaloon = Controller2D.Player.PipBaloon;
+        StageRadio();
+
+    }
+
+    public void HandleWarpCollision()
+    {
+        warp_check = true;
+        warpCollider.enabled = false;
+        PlayerInput.Instance.FreezePlayer();
+        blink.StartBlinking(3);
+        StartCoroutine(WaitBlinkingAction(blink));
+        DisableIdle();
+    }
+
+    public void DisableIdle()
+    {
+        disable_idle = true;
+        currentStateBaloon.SetActive(false);
+    }
+
+    public void EnableIdle()
+    {
+        disable_idle = false;
     }
 }

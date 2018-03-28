@@ -12,39 +12,39 @@ public class Controller2D : MonoBehaviour {
     [SerializeField]
     private Transform warpPoint;
     [SerializeField]
-    private SpriteRenderer helpPopUp;
+    private GameObject helpPopUp;
 
     [SerializeField]
     private GameObject equipBaloon;
     [SerializeField]
     private GameObject pipBaloon;
-	[SerializeField]
-	private GameObject teleportBaloon;
+    [SerializeField]
+    private GameObject teleportBaloon;
 
-	private Collider2D playerCollider;
+    private Collider2D playerCollider;
     private Rigidbody2D playerRigidBody;
     private Animator anim;
     public TipoItem cribPart = TipoItem.vazio;
 
 
     public bool gotHelmet, gotAntena, gotPip = false;
-	public bool gotHint1, gotHint2, gotHint3 = false;
-	public bool teleportEnabled = false;
-	public int numberEquip = 0;
-	public bool playBeep = true;
+    public bool gotHint1, gotHint2, gotHint3 = false;
+    public bool teleportEnabled = false;
+    public int numberEquip = 0;
+    public bool playBeep = true;
 
     [SerializeField]
     private float tempo_para_idle;
     private float tempo_parado = 0f;
     private float mfaceX = 1;
     private float mfaceY = 1;
-	private ConsoleManager consoleManager;
+    private ConsoleManager consoleManager;
 
 
     // Use this for initialization
-    void Start () {
+    void Start() {
 
-        if(Controller2D.Player == null)
+        if (Controller2D.Player == null)
         {
             player = this;
         }
@@ -58,10 +58,10 @@ public class Controller2D : MonoBehaviour {
         playerCollider = GetComponent<Collider2D>();
         playerRigidBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-		consoleManager = GameObject.FindGameObjectWithTag("ConsoleManager").GetComponent<ConsoleManager>();
+        consoleManager = GameObject.FindGameObjectWithTag("ConsoleManager").GetComponent<ConsoleManager>();
         equipBaloon.SetActive(false);
-		
-	}
+
+    }
 
 
     public static Controller2D Player
@@ -70,6 +70,15 @@ public class Controller2D : MonoBehaviour {
         {
             return player;
         }
+    }
+
+    public GameObject HelpPopUp
+    {
+        get
+        {
+            return helpPopUp;
+        }
+
     }
 
     public GameObject EquipBaloon
@@ -260,16 +269,12 @@ public class Controller2D : MonoBehaviour {
         gotHelmet = true;
         anim.SetLayerWeight(4, 0f);
         anim.SetLayerWeight(2, 1f);
-        helpPopUp.enabled = false;
         item.BeTaken();
         AtualizarSprites();
 
     }
 
-    private void Levantar()
-    {
 
-    }
     private void PegarConsole(PickupItem item)
     {
         //  Debug.Log("Peguei um console carai");

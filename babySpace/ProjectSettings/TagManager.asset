@@ -15,6 +15,7 @@ TagManager:
   - Letra
   - ParentLimit
   - baloonTrig
+  - Warp
   layers:
   - Default
   - TransparentFX

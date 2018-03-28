@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 194f3c8fba5cf2e43b97dfc1abe255b2
-timeCreated: 1517275315
+timeCreated: 1522194656
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -244,10 +244,10 @@ TextureImporter:
       name: Finding da Wae_13
       rect:
         serializedVersion: 2
-        x: 192
-        y: 129
-        width: 128
-        height: 64
+        x: 213
+        y: 144
+        width: 90
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

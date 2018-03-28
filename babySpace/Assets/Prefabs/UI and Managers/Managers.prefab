@@ -598,3 +598,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blink: {fileID: 0}
+  warpCollider: {fileID: 0}

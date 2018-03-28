@@ -8,6 +8,8 @@ public class QuestManager : MonoBehaviour {
 
     [SerializeField]
     private BlinkEffect blink;
+    [SerializeField]
+    private Collider2D warpCollider;
 
     private GameObject currentStateBaloon;
 
@@ -42,11 +44,15 @@ public class QuestManager : MonoBehaviour {
 		{
 			AudioManager.instance.WindAudio(true);
 		}
+        if(warpCollider != null)
+        {
+            warpCollider.enabled = false;
+        }
 		
         //blink.StartBlinking(5);
         //StartCoroutine(WaitBlinkingAction(blink));
 
-        currentStateBaloon = Controller2D.Player.EquipBaloon;
+        currentStateBaloon = Controller2D.Player.HelpPopUp;
     }
 
     // Update is called once per frame
@@ -75,8 +81,9 @@ public class QuestManager : MonoBehaviour {
     {
         Controller2D.Player.teleportEnabled = true;
         StopIdleState();
-        currentStateBaloon = null;
-        
+        currentStateBaloon.SetActive(false);
+        currentStateBaloon = Controller2D.Player.TeleportBaloon;
+        warpCollider.enabled = true;
         StageRadio();
     }
 
@@ -94,6 +101,13 @@ public class QuestManager : MonoBehaviour {
         {
             currentStateBaloon.SetActive(false);
         }
+    }
+
+    public void Levantar()
+    {
+        currentStateBaloon.SetActive(false);
+        currentStateBaloon = Controller2D.Player.EquipBaloon;
+
     }
 
 

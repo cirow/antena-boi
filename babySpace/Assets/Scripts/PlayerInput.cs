@@ -117,6 +117,7 @@ public class PlayerInput : MonoBehaviour {
         if (actionButton && !game_is_started)
         {
             Debug.Log("Game is started");
+            QuestManager.Instance.Levantar();
             game_is_started = true;
             Controller2D.Player.Anim.SetTrigger("getUp");
             Controller2D.Player.Anim.SetLayerWeight(4, 1f);

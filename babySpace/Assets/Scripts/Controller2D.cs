@@ -234,6 +234,7 @@ public class Controller2D : MonoBehaviour {
 					}
                     break;
                 default:
+                    Debug.Log("É uma parte");
                     PegarPart(itemPego);
                     break;
 
@@ -245,6 +246,7 @@ public class Controller2D : MonoBehaviour {
     {
         if(cribPart == TipoItem.vazio)
         {
+            Debug.Log("Player tem espaço");
            // Debug.Log("Peguei uma peça carai");
             cribPart = item.Item;
             item.BeTaken();
@@ -349,7 +351,8 @@ public class Controller2D : MonoBehaviour {
 
     public void SearchAction()
     {
-        Collider2D objetoPerto = Physics2D.OverlapCircle(transform.position, 0.6f, LayerMask.GetMask("ActionLayer"));
+        Collider2D objetoPerto = Physics2D.OverlapCircle(transform.position, 1f, LayerMask.GetMask("ActionLayer"));
+        Debug.Log(objetoPerto);
         if (objetoPerto != null && PlayerInput.Instance.game_is_started)
         {
 			//if(objetoPerto.tag == "HintSpot")
@@ -360,16 +363,18 @@ public class Controller2D : MonoBehaviour {
            // else
 		    if (objetoPerto.tag == "PickUpItem")
             {
-				//Debug.Log("aliwh: " + objetoPerto.tag);
                 PegarItem(objetoPerto);
             }
-            else if(objetoPerto.tag == "SpaceCrib")
+            else if(objetoPerto.tag == "Slot")
             {
-                ActionNave(objetoPerto.GetComponent<SpaceCrib>());
+                ActionSlot(objetoPerto.GetComponent<PartSlot>());
             }
             else if (objetoPerto.tag == "RockSwitch")
             {
                 RockPress(objetoPerto.GetComponent<Rock>());
+            } else if(objetoPerto.tag == "BushSwitch")
+            {
+                PuzzleManager.Instance.PressBush();
             }
 
         }
@@ -432,6 +437,29 @@ public class Controller2D : MonoBehaviour {
 
             cribPart = TipoItem.vazio;
         }
+    }
+
+    private void ActionSlot(PartSlot partWanted)
+    {
+        Debug.Log("ActionSlot");
+        if (partWanted != null && partWanted.Tipo != TipoItem.vazio && cribPart != TipoItem.vazio)
+        {
+            SpaceCrib nave = partWanted.gameObject.GetComponentInParent<SpaceCrib>();
+            if (partWanted.Tipo == cribPart)
+            {
+
+                if (nave.AttachPart(cribPart))
+                {
+                    cribPart = TipoItem.vazio;
+                }
+            }
+            else
+            {
+                nave.PlayFailFix();
+            }   
+
+        }
+
     }
 
     private void Teleport()

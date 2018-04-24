@@ -12,6 +12,7 @@ public class Letra : MonoBehaviour {
     [SerializeField]
     private float marginRight, marginLeft, marginUp, marginDown;
     private float maxX, maxY, minX, minY;
+    private Vector2 initialPosition;
 
     RaycastHit2D hit;
 
@@ -33,6 +34,8 @@ public class Letra : MonoBehaviour {
         minX = transform.position.x - marginLeft;
         maxY = transform.position.y + marginUp;
         minY = transform.position.y - marginDown;
+
+        initialPosition = transform.position;
 
     }
 	
@@ -91,5 +94,10 @@ public class Letra : MonoBehaviour {
 
         //    rigidBody.MovePosition(mposition);
         //}
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = initialPosition;
     }
 }

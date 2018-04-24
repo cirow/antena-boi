@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,8 @@ public class SpaceCrib : MonoBehaviour {
 	public GameObject motorChild;
 	public GameObject combChild;
 	public GameObject espelhoChild;
-	public AudioClip attachFx;
+    public AudioClip attachFx;
+    public AudioClip failFix;
 
 	private AudioSource audioSource;
 
@@ -33,33 +35,49 @@ public class SpaceCrib : MonoBehaviour {
 		}
 	}
 
-    public void AttachPart(TipoItem cribPart)
+    public bool AttachPart(TipoItem cribPart)
     {
+        bool resposta = false;
+        Debug.Log("Objeto é um:" + cribPart);
         switch (cribPart)
         {
             case TipoItem.motor:
                 hasMotor = true;
 				PutMotor();
                 Debug.Log("Got Motor");
+                resposta =  true;
 
                 break;
             case TipoItem.combustivel:
                 hasFuel = true;
 				PutCombustivel();
                 Debug.Log("Got Fuel");
+                resposta = true;
 
                 break;
             case TipoItem.espelho:
                 hasMirror = true;
 				PutEspelho();
                 Debug.Log("Got Mirror");
-  
+                resposta = true;
+
                 break;
             default:
                 Debug.Log("Error, not supported part");
+                resposta = false;
                 break;
         }
-		audioSource.PlayOneShot(attachFx); 
+        if (resposta)
+        {
+            audioSource.PlayOneShot(attachFx);
+        }
+        else
+        {
+            Debug.Log("Como resposta é falsa");
+            audioSource.PlayOneShot(failFix);
+        }
+
+        return resposta;
     }
 
 	public void PutMotor()
@@ -67,7 +85,8 @@ public class SpaceCrib : MonoBehaviour {
 		hasMotor = true;
 		motorChild.GetComponent<SpriteRenderer>().enabled = true;
 		IconsManagerUI.Instance.MarkMotor();
-	}
+
+    }
 
 	public void PutCombustivel()
 	{
@@ -83,5 +102,8 @@ public class SpaceCrib : MonoBehaviour {
 		IconsManagerUI.Instance.MarkMirror();
 	}
 
-
+    internal void PlayFailFix()
+    {
+        audioSource.PlayOneShot(failFix);
+    }
 }

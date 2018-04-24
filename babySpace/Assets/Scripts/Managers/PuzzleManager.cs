@@ -1,17 +1,18 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour {
 
     [SerializeField]
-    private int[] rock_password = { 6, 1, 3 };
+    private int[] rock_password = { 6, 1, 3, 4 };
     [SerializeField]
     private Collider2D rockPrize;
     [SerializeField]
-    private Collider2D rockPuzzlePrize;
+    private GameObject rockPuzzlePrize;
 	[SerializeField]
-	private PickupItem letraPuzzlePrize;
+	private GameObject letraPuzzlePrize;
 	[SerializeField]
     private AudioClip plim;
     [SerializeField]
@@ -19,6 +20,8 @@ public class PuzzleManager : MonoBehaviour {
 
     [SerializeField]
     private PuzzleButton[] buttons_letras;
+    [SerializeField]
+    private GameObject bushPrize;
 
     private AudioSource audioSource;
     [SerializeField]
@@ -63,11 +66,14 @@ public class PuzzleManager : MonoBehaviour {
         }
 
         audioSource = GetComponent<AudioSource>();
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+        letraPuzzlePrize.SetActive(false);
+        bushPrize.SetActive(false);
+
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -89,27 +95,71 @@ public class PuzzleManager : MonoBehaviour {
         }
     }
 
+
+
 	void WinPuzzleLetras()
 	{
 		AudioManager.instance.ItemAudio();
-		Controller2D.Player.PegarPart(letraPuzzlePrize);
-	}
+        letraPuzzlePrize.SetActive(true);
+
+    }
+    //public bool RockPuzzle(int rock_index)
+    //{
+    //    if (rock_password_index < 4)
+    //    {
+    //        if (rock_index == rock_password[rock_password_index])
+    //        {
+    //            rock_password_index++;
+    //            if (rock_password_index >= 4)
+    //            {
+    //                UnlockRockItem();
+    //            }
+    //            else
+    //            {
+    //                Plim();
+    //            }
+
+    //            return true;
+    //        }
+    //        else
+    //        {
+    //            RockMiss();
+    //            return false;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if(rock_index != 5)
+    //        {
+    //            LockRockItem();
+    //            RockMiss();
+    //        }
+
+    //    }
+    //    return false;
+
+    //}
+
     public bool RockPuzzle(int rock_index)
     {
-        if(rock_password_index < 3)
-        {
-            if (rock_index == rock_password[rock_password_index])
-            {
-                rock_password_index++;
-                if (rock_password_index >= 3)
-                {
-                    UnlockRockItem();
-                }
-                else
-                {
-                    Plim();
-                }
+        return RockTry(rock_index);
+        
+    }
 
+    private void RockMiss()
+    {
+        rock_password_index = 0;
+        audioSource.PlayOneShot(missSound);
+    }
+
+    private bool RockTry(int rock_index)
+    {
+        if (rock_password_index < rock_password.Length)
+        {
+            //Debug.Log("Index is:" + rock_password_index + ", less than " + rock_password.Length);
+            if(rock_index == rock_password[rock_password_index])
+            {
+                RockHit();
                 return true;
             }
             else
@@ -118,36 +168,40 @@ public class PuzzleManager : MonoBehaviour {
                 return false;
             }
         }
-        else
+        else if(rock_password_index >= rock_password.Length)
         {
-            if(rock_index != 4)
-            {
-                LockRockItem();
-                RockMiss();
-            }
-
+            RockMiss();
+            
         }
         return false;
-        
     }
-    private void RockMiss()
+
+    private void RockHit()
     {
-        rock_password_index = 0;
-        audioSource.PlayOneShot(missSound);
+        rock_password_index++;
+
+        if (rock_password_index >= rock_password.Length)
+        {
+            UnlockRockItem();
+        }
+        else
+        {
+            Plim();
+        }
     }
 
     private void UnlockRockItem() 
     {
         Debug.Log("Rock item unlocked");
-       // rockPrize.enabled = false;
-        rockPuzzlePrize.enabled = true;
-        Plim();
+     //   rockPrize.enabled = false;
+        rockPuzzlePrize.SetActive(true);
+        AudioManager.instance.ItemAudio();
     }
     
     private void LockRockItem()
     {
         rockPrize.enabled = true;
-        rockPuzzlePrize.enabled = false;
+        rockPuzzlePrize.SetActive(false);
     }
 
     public void Plim()
@@ -155,5 +209,9 @@ public class PuzzleManager : MonoBehaviour {
         audioSource.PlayOneShot(plim);
     }
 
-
+    public void PressBush()
+    {
+        bushPrize.SetActive(true);
+        Plim();
+    }
 }

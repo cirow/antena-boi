@@ -534,6 +534,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e6e1727d81107914bae577129733aafe, type: 3}
   interfAudio: {fileID: 8300000, guid: 6fdb1bca046f8e944984cfcb43891a10, type: 3}
   gotItem: {fileID: 8300000, guid: 986d308312ec7d0428fd3ada27d40cb1, type: 3}
+  consoleSound: {fileID: 8300000, guid: cf4f5c1b08730034bbe8e8c7eb529aa3, type: 3}
   win: 0
   dontHaveEquip: 0
 --- !u!114 &114075718481426356

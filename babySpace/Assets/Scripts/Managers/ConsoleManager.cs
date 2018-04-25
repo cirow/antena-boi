@@ -80,6 +80,7 @@ public class ConsoleManager : MonoBehaviour {
 		{
 			consoleCanvas.enabled = true;
 			playerInput.canMove = false;
+            AudioManager.instance.ConsoleAudio();
 			//isHint = false;
 			//WriteCoordText();
 		}

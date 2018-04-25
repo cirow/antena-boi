@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour {
 	public AudioClip[] detectAudios;
 	public AudioClip interfAudio;
     public AudioClip gotItem;
+    public AudioClip consoleSound;
+
 	public bool win;
 	public bool dontHaveEquip;
 
@@ -160,6 +162,11 @@ public class AudioManager : MonoBehaviour {
     public void ItemAudio()
     {
         audioSources[3].PlayOneShot(gotItem);
+    }
+
+    public void ConsoleAudio()
+    {
+        audioSources[3].PlayOneShot(consoleSound);
     }
 
     public void InterVolume(float vol)

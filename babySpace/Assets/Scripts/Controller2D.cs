@@ -60,6 +60,11 @@ public class Controller2D : MonoBehaviour {
         anim = GetComponent<Animator>();
         consoleManager = GameObject.FindGameObjectWithTag("ConsoleManager").GetComponent<ConsoleManager>();
         equipBaloon.SetActive(false);
+		IconsManagerUI.instance.pecasUI.enabled = false;
+		IconsManagerUI.instance.miniConsoleUI.enabled = false;
+		
+
+
 
     }
 
@@ -144,9 +149,13 @@ public class Controller2D : MonoBehaviour {
             tempo_parado += Time.deltaTime;
 
         }
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && consoleManager.canShowConsole)
 		{
 			SearchHint();
+		}
+		if(Input.GetKeyDown(KeyCode.Escape) && consoleManager.canShowConsole)
+		{
+			consoleManager.CloseByEscape();
 		}
 		if (PlayerInput.Instance.ActionButton)
 		{
@@ -174,8 +183,10 @@ public class Controller2D : MonoBehaviour {
 		//Destroi colisores que limitam o inicio
 
         SelecionarLayerWeight(0);
+		consoleManager.canShowConsole = true;
+		IconsManagerUI.instance.miniConsoleUI.enabled = true;
         QuestManager.Instance.TodosOsEquips();
-
+		
 
     }
 

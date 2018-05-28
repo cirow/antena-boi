@@ -16,6 +16,10 @@ public class IconsManagerUI : MonoBehaviour {
 	public Image mirrorMark;
 	public  Text posTextUI;
 	public Text ajudaDosNoob;
+	public Canvas pecasUI;
+	public Canvas miniConsoleUI;
+	
+	
 
 	public bool m_gotMotor = false;
 	public bool m_gotFuel = false;
@@ -37,6 +41,7 @@ public class IconsManagerUI : MonoBehaviour {
         }
 
 		player = GameObject.FindGameObjectWithTag("Player");
+	
 	}
 
 

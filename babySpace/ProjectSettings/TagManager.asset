@@ -18,6 +18,8 @@ TagManager:
   - Warp
   - Slot
   - BushSwitch
+  - PecasUI
+  - MiniConsoleUI
   layers:
   - Default
   - TransparentFX

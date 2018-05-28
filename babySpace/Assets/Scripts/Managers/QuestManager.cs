@@ -87,6 +87,8 @@ public class QuestManager : MonoBehaviour {
         currentStateBaloon.SetActive(false);
         currentStateBaloon = Controller2D.Player.TeleportBaloon;
         warpCollider.enabled = true;
+		disable_idle = false;
+		
     }
 
     public void IdleState()
@@ -130,8 +132,9 @@ public class QuestManager : MonoBehaviour {
         currentStateBaloon.SetActive(false);
         currentStateBaloon = Controller2D.Player.PipBaloon;
         StageRadio();
+		IconsManagerUI.instance.pecasUI.enabled = true;
 
-    }
+	}
 
     public void HandleWarpCollision()
     {
@@ -141,6 +144,7 @@ public class QuestManager : MonoBehaviour {
         blink.StartBlinking(3);
         StartCoroutine(WaitBlinkingAction(blink));
         DisableIdle();
+		
     }
 
     public void DisableIdle()

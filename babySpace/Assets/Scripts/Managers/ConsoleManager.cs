@@ -14,6 +14,7 @@ public class ConsoleManager : MonoBehaviour {
 	private GameObject player;
 	private PlayerInput playerInput;
 	private Controller2D playerController;
+	public bool canShowConsole = false;
 	void Awake()
 	{
 		consoleCanvas.enabled = false;
@@ -122,5 +123,14 @@ public class ConsoleManager : MonoBehaviour {
 		coordText.text = "Current Pos (x:y) = " + (int)coordPos.x + " : " + (int)coordPos.y;
 	}
 
+	public void CloseByEscape()
+	{
+		if (consoleCanvas.enabled == true)
+		{
+			consoleCanvas.enabled = false;
+			playerInput.canMove = true;
+			//isHint = false;
+		}
+	}
 	
 }
